@@ -1,0 +1,136 @@
+
+<a class="edit-calorie-table btn" href="#/calorieTable">Edit Calorie Table</a>
+
+<header>
+  <div class="week-chooser">
+    <button ng-click="prevWeek()" class="btn previous-week">Previous Week</button>
+    <button ng-click="nextWeek()" class="btn next-week">Next Week</button>
+    Week: {{date.monday | date: 'MMM d'}} - {{date.sunday | date:'MMM d, yyyy'}} <br/>
+    Day: {{date.current | date:'fullDate'}} 
+    <div style="clear:both"></div>
+  </div>
+
+</header>
+
+<div class="header-space"></div>  
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Item</th>
+			<th>Gross Weight</th>
+			<th>Tare Weight</th>	
+			<th>Net Weight</th>
+			<th>Cal/g</th>
+			<th>Cal</th>
+			<th></th>
+		</tr>
+		<tr>
+      <td>
+        <input
+          type="text" 
+          class="item" 
+          typeahead="item for item in calorieTable.list | filter:$viewValue | limitTo:10"
+          ng-click="itemClick($event)"
+          ng-model="newItem.item" />
+      </td>
+			<td ng-repeat="col in cols">
+        <input
+          type="text" 
+          ng-class="col"  
+          ng-change="newItemChanged(col)" 
+          ng-enter="newItemEnter(col)" 
+          ng-click="itemClick($event)" 
+          ng-blur="newItemBlur(col)" 
+          ng-model="newItem[col]" />
+			</td>
+			<td><button class="btn" style="width:100%" ng-click="add()">Add</button></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="foodItem in foodItems">
+      <td>
+        <input
+          typeahead="item for item in calorieTable.list | filter:$viewValue | limitTo:10"
+          type="text" 
+          readonly="readonly" 
+          class="item"
+          ng-blur="itemBlur($event, foodItem, 'item')" 
+          ng-enter="itemEnter($event, foodItem)" 
+          ng-focus="itemFocus($event)" 
+          ng-click="itemClick($event)"  
+          ng-change="itemChanged(foodItem, 'item')"
+          ng-model="foodItem.item"
+          title="{{foodItem.item}}"/>
+      </td>
+			<td ng-repeat="col in cols">
+        <input
+          type="text" 
+          readonly="readonly" 
+          ng-class="col"
+          ng-blur="itemBlur($event, foodItem)" 
+          ng-enter="itemEnter($event, foodItem)" 
+					ng-focus="itemFocus($event)" 
+          ng-click="itemClick($event)"  
+          ng-change="itemChanged(foodItem, col)"
+          ng-model="foodItem[col]"/>
+			</td>
+      <!-- <td>{{foodItem._id}}</td>
+      <td>{{foodItem.date}}</td> -->
+			<!-- <td><button ng-click="update(foodItem)">Update</button></td> -->
+			<td><button class="btn" style="width:100%" ng-click="remove(foodItem)">Remove</button></td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+<div class="footer-space"></div>
+
+<footer>
+  <div class="totals-div">
+    <table class="totals-table">
+      <tbody>
+        <tr>
+            <th><a href="#/weekly" class="btn">Show Weekly Totals</a></th>
+            <th></th>
+            <th>Budgeted</th>
+            <th></th>
+            <th></th>
+            <th>Totals</th>
+           <!--  <th></th> -->
+            <th>Balance</th>
+        </tr>
+        <tr>
+            <th colspan="2">Daily Total Cal</th>
+            <th>{{wccr.daily.budgeted | number:0}}</th>
+            <th></th>
+            <th></th>
+            <th>{{wccr.daily.total | number:0}}</th>
+            <!-- <th></th> -->
+            <th>{{wccr.daily.budgeted - wccr.daily.total | number:0}}</th>
+        </tr>
+        <tr>
+            <th colspan="2">Cumulative Weekly Total</th>
+            <th>{{wccr.weekly.budgeted | number:0}}</th>
+            <th></th>
+            <th></th>
+            <th>{{wccr.weekly.total | number:0}}</th>
+           <!--  <th></th> -->
+            <th>{{wccr.weekly.budgeted - wccr.weekly.total | number:0}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="days">
+    <ul class="footer-nav">
+      <li 
+          ng-repeat="day in date.days" 
+          ng-class="{'active-day': date.activeDay[day]}"
+          ng-click="navClick(day)"
+          >{{day}}</li>
+    </ul>
+  </div>
+
+</footer>

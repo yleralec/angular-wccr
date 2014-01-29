@@ -1,0 +1,37 @@
+
+.back-to-WCCR {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.calorie-table-nav {
+  text-align: right;
+  margin-right: 30px;
+}
+
+.calorie-table-nav a {
+  margin: 0px 3px;
+  cursor: pointer;
+}
+
+.rows-per-page {
+  width: 80px;
+}
+
+.calorie-table-item {
+  min-width: 250px;
+  width: 95%;
+}
+
+.calorie-table-goto-button {
+  position: absolute;
+  top: 40px;
+  right: 80px;
+}
+
+.calorie-table-goto-input {
+  position: absolute;
+  top: 40px;
+  right: 5px;
+}

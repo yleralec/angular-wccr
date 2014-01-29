@@ -1,0 +1,129 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00b7ff;
+}
+.menu-item {
+  padding: 20px;
+  cursor: pointer;
+}
+
+input, label {
+	display: inline-block;
+}
+
+input[readonly] {
+	background-color: white;
+	border: none;
+	cursor: default;
+
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+
+input {
+	width: 80px;
+}
+
+input.item  {
+	width: 250px;
+}
+
+
+header {
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  z-index: 10001;
+}
+
+.previous-week {
+  float: left;
+}
+
+.week-chooser {
+  padding: 5px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+.next-week {
+  float: right;
+}
+
+.header-space {
+  height: 80px;
+}
+
+
+
+.footer-space {
+  height: 100px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.totals-div {
+  border-bottom: 2px solid lightgray;
+}
+
+.totals-table {
+  float: right;
+  margin: 10px;
+}
+
+.totals-table tr {
+  border-bottom: 2px solid gray;
+}
+
+.totals-table th {
+  padding: 3px 10px;
+}
+
+.footer-nav {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 20px;
+  margin-bottom: 5px;
+}
+
+.footer-nav li {
+  display: inline-block;
+  padding: 3px 5px;
+  border-radius: 0px 0px 5px 5px;
+  background-color: gray;
+  border: 1px solid lightgray;
+  border-top: none;
+  margin: 0px 1px;
+}
+
+.footer-nav li.active-day {
+  background-color: lightgray;
+  color: black;
+}
+
+.footer-nav li:hover {
+  background-color: lightgray;
+}
+
+.edit-calorie-table {
+  position: absolute;
+  top: 65px;
+  right: 5px;
+}

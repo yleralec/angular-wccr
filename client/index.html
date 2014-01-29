@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="wccr-module">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>WCCR Module</title>
+
+    <!-- libraries -->
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+
+    <!-- my style -->
+    <link rel="stylesheet" href="css/calorieTable.css">
+    <link rel="stylesheet" href="css/wccr.css">
+
+  </head>
+  <body>
+
+  <!--   <div header></div> -->
+
+    <div ng-view></div>
+
+    <!-- libraries -->
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/ui-bootstrap-0.6.0.min.js"></script>
+    <script src="js/lib/ui-bootstrap-tpls-0.6.0.min.js"></script>
+
+    <!-- main app config -->
+    <script src="js/app/main.js"></script>
+
+    <!-- controllers -->
+    <script src="js/app/controllers/calorieTable.js"></script>
+    <script src="js/app/controllers/header.js"></script>
+    <script src="js/app/controllers/wccr.js"></script>
+    <script src="js/app/controllers/weekly.js"></script>
+
+    <!-- directives -->
+    <script src="js/app/directives/events.js"></script>
+    <script src="js/app/directives/header.js"></script>
+
+    <!-- services -->
+    <script src="js/app/services/calorieTable.js"></script>
+    <script src="js/app/services/foodItems.js"></script>
+    <script src="js/app/services/navigation.js"></script>
+    <script src="js/app/services/date.js"></script>
+    <script src="js/app/services/wccr.js"></script>
+
+    <!-- filters -->
+    <script src="js/app/filters/balance.js"></script>
+
+  </body>
+</html>

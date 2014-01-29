@@ -1,0 +1,58 @@
+<div class="top-corner">
+
+  <button class="back-to-WCCR btn" onclick="window.location = ''">Back to WCCR</button>
+
+  <form role="form">
+    <input class="calorie-table-goto-button" type="text" ng-model="goto" />
+    <input class="calorie-table-goto-input btn" type="submit" class="btn" ng-click="goTo()" value="Go To">
+  </form>
+</div>
+
+<h3>Calorie Table</h3>
+
+<div>
+  <label>Rows Per Page</label>
+  <select
+      class="rows-per-page" 
+      ng-model="limit" 
+      ng-options="option for option in limitOptions">
+  </select>
+</div>
+
+<div class="calorie-table-nav">
+  <a ng-click="prev()" ng-show="start > 0">Prev {{limit}}</a>
+  Showing {{start}}-{{start+limit}} of {{size}}
+  <a ng-click="next()" ng-show="size-(start + limit) > 0">Next {{limit}}</a>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>New Item</th>
+    </tr>
+    <tr>
+      <td><input type="text" class="calorie-table-item" ng-model="newItem.item" ng-enter="new()" id="newItem"></td>
+      <td><input type="text" ng-model="newItem.calg" ng-enter="new()"></td>
+      <td><input type="submit" class="btn" value="Add" ng-click="new()"></td>
+    </tr>
+    <tr>
+      <th>Item Name</th>
+      <th>Calories Per Gram</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in calorieTable">
+      <td><input type="text" class="calorie-table-item" ng-model="item.item" ng-enter-blur="update(item)"/></td>
+      <td><input type="text" ng-model="item.calg" ng-enter-blur="update(item)"/></td>
+      <!-- <td><input type="submit" class="btn" value="Update" ng-click="update(item)"></td> -->
+      <td><input type="submit" class="btn" value="Remove" ng-click="remove(item)"></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="calorie-table-nav">
+  <a ng-click="prev()" ng-show="start > 0">Prev {{limit}}</a>
+  Showing {{start}}-{{start+limit}} of {{size}}
+  <a ng-click="next()" ng-show="size-(start + limit) > 0">Next {{limit}}</a>
+</div>

@@ -1,0 +1,11 @@
+
+<div>
+  <a href="#/" class="btn">Back</a>
+</div>
+
+<div ng-repeat="week in weeks">
+  <pre>
+  Week: {{week.monday | date:'fullDate'}} - {{week.sunday | date:'fullDate'}}
+  Calories: {{week.cal | number:0}} 
+  </pre>
+</div>

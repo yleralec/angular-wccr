@@ -1,0 +1,16 @@
+<div class="navbar navbar-inverse navbar-static-top" >
+	<a id="logout" style="float:right;margin-top: 10px;margin-right: 20px;">Logout</a>
+	<a id="user" style="float:right;margin-top: 10px;margin-right: 20px; text-decoration: none;">User</a>
+
+	<div class="navbar-inner">
+	    <div class="nav-collapse collapse">
+	        <ul id="nav" class="nav">
+                <li ng-repeat="item in nav" class="{{item.active}}"><a href="#{{item.url}}">{{item.name}}</a></li>
+	        </ul>
+	    </div>
+
+	    <h3 class="navbar-text text-center" style="margin-top: 0px;" id="date">{{date.value | date: 'fullDate'}}</h3>
+	</div>
+</div>
+
+{{active}}
